@@ -31,5 +31,4 @@ with open('devices.csv', 'w', newline = '') as csvfile:
     networks = dashboard.organizations.getOrganizationNetworks(org_id, total_pages = -1)
     for network in networks:
       devices = dashboard.networks.getNetworkDevices(networkId=network['id'])
-      for device in devices:
         [export.writerow({'network_id': network['id'], 'network_name': network['name'], **device}) for device in devices]
