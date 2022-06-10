@@ -17,7 +17,7 @@ with open('networks.csv', 'w', newline = '') as csvfile:
                                       'notes',
                                       'isBoundToConfigTemplate',
                                       ], 
-                            extrasaction='ignore'
+                            extrasaction = 'ignore'
                             )
     export.writeheader()
     networks = dashboard.organizations.getOrganizationNetworks(org_id, total_pages = -1)
