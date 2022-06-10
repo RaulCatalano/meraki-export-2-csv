@@ -36,10 +36,10 @@ with open('clients.csv', 'w', newline = '') as csvfile:
                                       'smInstalled',
                                       'groupPolicy8021x'
                                       ], 
-                            extrasaction='ignore'
+                            extrasaction = 'ignore'
                             )
     export.writeheader()
     networks = dashboard.organizations.getOrganizationNetworks(org_id, total_pages = -1)
     for network in networks:
-        clients = dashboard.networks.getNetworkClients(networkId=network['id'], total_pages=-1)
+        clients = dashboard.networks.getNetworkClients(networkId=network['id'], total_pages = -1)
         [export.writerow({'network_id': network['id'], 'network_name': network['name'], **client}) for client in clients]
