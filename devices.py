@@ -4,7 +4,7 @@ import csv
 api_key = '***'
 org_id = '***'
 
-dashboard = meraki.DashboardAPI(api_key, suppress_logging=True)
+dashboard = meraki.DashboardAPI(api_key, suppress_logging = True)
 
 with open('devices.csv', 'w', newline = '') as csvfile:
     export = csv.DictWriter(csvfile, [
@@ -30,5 +30,5 @@ with open('devices.csv', 'w', newline = '') as csvfile:
     export.writeheader()
     networks = dashboard.organizations.getOrganizationNetworks(org_id, total_pages = -1)
     for network in networks:
-      devices = dashboard.networks.getNetworkDevices(networkId=network['id'])
+      devices = dashboard.networks.getNetworkDevices(networkId = network['id'])
         [export.writerow({'network_id': network['id'], 'network_name': network['name'], **device}) for device in devices]
